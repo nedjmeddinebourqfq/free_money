@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(73, 73, 73);
+  font-family: "Roboto", sans-serif;
+}
+.c-pointer {
+  cursor: pointer;
+}

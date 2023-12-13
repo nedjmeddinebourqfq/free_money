@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Apple Pay",
+    "image_id": 1,
+    "type": 3,
+    "is_active": true
+  },
+  {
+    "name": "Bitcoin",
+    "image_id": 1,
+    "type": 3,
+    "is_active": true
+  },
+
+  {
+    "name": "PayPal",
+    "image_id": 1,
+    "type": 2,
+    "is_active": true
+  },
+  {
+    "name": "Credit Card",
+    "image_id": 1,
+    "type": 1,
+    "is_active": true
+  }
+  ,
+  {
+    "name": "Debit Card",
+    "image_id": 1,
+    "type": 2,
+    "is_active": true
+  }
+]

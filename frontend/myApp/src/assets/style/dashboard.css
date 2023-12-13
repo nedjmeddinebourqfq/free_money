@@ -1,0 +1,11 @@
+.dash-card {
+  border-radius: 15px;
+  padding: 20px;
+}
+.dash-card svg {
+  font-size: 50px;
+}
+.dash-card-title {
+  font-size: 20px;
+  margin-bottom: 0;
+}

@@ -1,0 +1,17 @@
+.payment-table-wrapper {
+  margin-bottom: 20px;
+}
+.payment-table-wrapper .btn-dark {
+  height: calc(100% - 70px) !important;
+}
+
+.payment-forms input[type="file"],
+.modal-custom input[type="file"] {
+  background-color: inherit;
+  border-radius: 0;
+  color: white;
+  padding: 15px;
+}
+.payment-forms label {
+  color: white;
+}
