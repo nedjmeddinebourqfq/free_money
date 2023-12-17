@@ -9,15 +9,18 @@ import axios from "axios";
 const Navbar = (props) => {
   const [profileData, setProfileData] = useState([]);
   const token = `Token ${localStorage.getItem("token")}`;
+  const login = localStorage.getItem("login");
   useEffect(() => {
-    axios
-      .get("https://test.privateyebd.com/api/v1/auth/profile/", {
-        headers: { Authorization: token },
-      })
-      .then((res) => {
-        setProfileData(res.data.data);
-      });
-  }, [token]);
+    if (login) {
+      axios
+        .get("https://test.privateyebd.com/api/v1/auth/profile/", {
+          headers: { Authorization: token },
+        })
+        .then((res) => {
+          setProfileData(res.data.data);
+        });
+    }
+  }, [token, login]);
 
   const [toggle, setToggle] = useState(false);
 
@@ -51,7 +54,7 @@ const Navbar = (props) => {
                 <img
                   style={{ maxHeight: "40px" }}
                   className="img-thumbnail me-2 p-0"
-                  src={profileData.image_url}
+                  src={profileData.image_url || ""}
                   alt="user"
                 />
                 <div className="d-flex flex-column align-items-start text-white">

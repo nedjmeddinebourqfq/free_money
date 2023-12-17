@@ -5,6 +5,9 @@
   bottom: 0;
   overflow: scroll;
 }
+.content-area::-webkit-scrollbar {
+  display: none;
+}
 
 /*----------- sidebar ----------------*/
 

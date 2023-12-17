@@ -3,7 +3,7 @@ import { TbTimeDuration0 } from "react-icons/tb";
 
 const Dashcard = ({ title, value }) => {
   return (
-    <div className="col-lg-3 col-md-6 col-12">
+    <div className="col-xl-3 col-lg-4 col-md-6 col-12">
       <div className="bg-dark dash-card mb-2">
         <div className="row">
           <div className="col-auto">

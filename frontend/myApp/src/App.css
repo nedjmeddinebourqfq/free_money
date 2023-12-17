@@ -3,10 +3,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background-color: rgb(73, 73, 73);
   font-family: "Roboto", sans-serif;
 }
+
 .c-pointer {
   cursor: pointer;
+}
+
+.sidenav-comlogo {
+  height: 50px;
+}
+
+.comlogo {
+  height: 300px;
+}
+
+@media only screen and (max-width: 720px) {
+  .comlogo {
+    height: 200px;
+  }
 }

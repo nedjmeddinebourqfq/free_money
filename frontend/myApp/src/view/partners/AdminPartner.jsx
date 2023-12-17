@@ -30,41 +30,6 @@ const MobilePartner = () => {
   const [editSubmit, setEditSubmit] = useState(false);
   const [selectedEditItem, setSelectedEditItem] = useState(null);
 
-  useEffect(() => {
-    if (editSubmit) {
-      putData(`offer/admin/partners/${selectedEditItem.id}/`, {
-        title: selectedEditItem.title,
-        image: selectedEditItem.image,
-        price: selectedEditItem.price,
-        type: selectedEditItem.type,
-        is_active: selectedEditItem.is_active,
-      }).then((res) => {
-        console.log("edit response:", res);
-      });
-      fetchData();
-      setEditDataModal(false);
-      setSelectedEditItem(null);
-      setEditSubmit(false);
-    }
-    if (shouldSubmit) {
-      postData("offer/admin/partners/", partnerData).then((response) => {
-        console.log("partner data upload response", response);
-      });
-      setShouldSubmit(false);
-      setPartnerData({
-        title: "",
-        description: "",
-        image: null,
-        price: "",
-        type: null,
-        is_active: null,
-      });
-      fetchData();
-      setFileInput();
-    }
-    fetchData();
-  }, [shouldSubmit, partnerData, editSubmit, selectedEditItem]);
-
   const handleInputChange = (name, value) => {
     if (name === "type" || name === "image") {
       value = value ? parseInt(value, 10) : 0;
@@ -204,6 +169,7 @@ const MobilePartner = () => {
     } else if (name === "is_active") {
       value = value === "true";
     }
+    console.log("name, value:", name, value);
     setSelectedEditItem({
       ...selectedEditItem,
       [name]: value,
@@ -245,6 +211,41 @@ const MobilePartner = () => {
       setEditSubmit(true);
     }
   };
+  useEffect(() => {
+    if (editSubmit) {
+      putData(`offer/admin/partners/${selectedEditItem.id}/`, {
+        title: selectedEditItem.title,
+        description: selectedEditItem.description,
+        image: selectedEditItem.image,
+        price: selectedEditItem.price,
+        type: selectedEditItem.type,
+        is_active: selectedEditItem.is_active,
+      }).then((res) => {
+        console.log("edit response:", res);
+      });
+      fetchData();
+      setEditDataModal(false);
+      setSelectedEditItem(null);
+      setEditSubmit(false);
+    }
+    if (shouldSubmit) {
+      postData("offer/admin/partners/", partnerData).then((response) => {
+        console.log("partner data upload response", response);
+      });
+      setShouldSubmit(false);
+      setPartnerData({
+        title: "",
+        description: "",
+        image: null,
+        price: "",
+        type: null,
+        is_active: null,
+      });
+      fetchData();
+      setFileInput();
+    }
+    fetchData();
+  }, [shouldSubmit, partnerData, editSubmit, selectedEditItem]);
 
   return (
     <div>
@@ -400,9 +401,7 @@ const MobilePartner = () => {
             <div className="col-12">
               <Textarea
                 placeholder="Description"
-                value={
-                  selectedEditItem ? selectedEditItem.description || "" : ""
-                }
+                value={selectedEditItem ? selectedEditItem.description : ""}
                 onChange={(value) =>
                   handleEditInputChange("description", value)
                 }

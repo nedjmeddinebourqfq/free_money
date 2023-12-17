@@ -49,7 +49,6 @@ const Table = ({ columns, dataSource, onActionClick }) => {
         statusText = "Inactive";
         statusColor = "#ed0909";
         break;
-
       default:
         statusText = "unknown";
         statusColor = "#ff0000";

@@ -69,8 +69,9 @@ const PaymentMethod = () => {
         is_active: selectedEditItem.is_active,
       }).then((res) => {
         console.log("edit response:", res);
+        fetchData();
       });
-      fetchData();
+
       setEditDataModal(false);
       setSelectedEditItem(null);
       setEditSubmit(false);

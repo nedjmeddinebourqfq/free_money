@@ -6,6 +6,7 @@ import Input from "../../component/forms/Input";
 const Profile = () => {
   const [profileData, setProfileData] = useState([]);
   const token = `Token ${localStorage.getItem("token")}`;
+
   useEffect(() => {
     axios
       .get("https://test.privateyebd.com/api/v1/auth/profile/", {
@@ -24,8 +25,8 @@ const Profile = () => {
         <div className="col-md-4 col-lg-3 col-xl-2 mb-3">
           <img
             style={{ height: "200px", width: "200px" }}
-            src={profileData.image_url}
-            alt={profileData.username}
+            src={profileData.image_url || ""}
+            alt={profileData.username || ""}
             className="rounded-circle"
           />
         </div>
@@ -35,13 +36,13 @@ const Profile = () => {
               <Input
                 type="text"
                 placeholder="User Name"
-                value={profileData.username}
+                value={profileData.username || ""}
                 disabled={true}
               />
               <Input
                 type="text"
                 placeholder="Email"
-                value={profileData.email}
+                value={profileData.email || ""}
                 disabled={true}
               />
             </div>
@@ -49,13 +50,13 @@ const Profile = () => {
               <Input
                 type="text"
                 placeholder="Mobile No."
-                value={profileData.mobile}
+                value={profileData.mobile || ""}
                 disabled={true}
               />
               <Input
                 type="text"
                 placeholder="Bio"
-                value={profileData.bio}
+                value={profileData.bio || ""}
                 disabled={true}
               />
             </div>

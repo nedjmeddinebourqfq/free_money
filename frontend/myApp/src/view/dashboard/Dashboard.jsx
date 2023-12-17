@@ -6,15 +6,21 @@ import axios from "axios";
 const Dashboard = () => {
   const [dashCard, setDashCard] = useState([]);
   const token = `Token ${localStorage.getItem("token")}`;
+  const login = localStorage.getItem("login");
   useEffect(() => {
-    axios
-      .get("https://test.privateyebd.com/api/v1/utility/admin/report/", {
-        headers: { Authorization: token },
-      })
-      .then((response) => {
-        setDashCard(response.data.data);
-      });
-  }, [token]);
+    if (login) {
+      axios
+        .get("https://test.privateyebd.com/api/v1/utility/admin/report/", {
+          headers: { Authorization: token },
+        })
+        .then((response) => {
+          setDashCard(response.data.data);
+        })
+        .catch((err) => {
+          console.log(err.response);
+        });
+    }
+  }, [token, login]);
   return (
     <div>
       <section className="cards col-12">
