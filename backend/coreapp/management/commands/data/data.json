@@ -1,34 +1,82 @@
 [
-  {
-    "name": "Apple Pay",
-    "image_id": 1,
-    "type": 3,
-    "is_active": true
-  },
-  {
-    "name": "Bitcoin",
-    "image_id": 1,
-    "type": 3,
-    "is_active": true
-  },
-
-  {
-    "name": "PayPal",
-    "image_id": 1,
-    "type": 2,
-    "is_active": true
-  },
-  {
-    "name": "Credit Card",
-    "image_id": 1,
-    "type": 1,
-    "is_active": true
-  }
-  ,
-  {
-    "name": "Debit Card",
-    "image_id": 1,
-    "type": 2,
-    "is_active": true
-  }
+    {
+        "title": "Offer 1",
+        "description": "Description for Offer 1",
+        "image_id": 1,
+        "price": 19.99,
+        "type": 1,
+        "is_active": true
+    },
+    {
+        "title": "Offer 2",
+        "description": "Description for Offer 2",
+        "image_id": 1,
+        "price": 29.99,
+        "type": 2,
+        "is_active": true
+    },
+    {
+        "title": "Offer 3",
+        "description": "Description for Offer 3",
+        "image_id": 1,
+        "price": 39.99,
+        "type": 1,
+        "is_active": false
+    },
+    {
+        "title": "Offer 4",
+        "description": "Description for Offer 4",
+        "image_id": 1,
+        "price": 49.99,
+        "type": 2,
+        "is_active": true
+    },
+    {
+        "title": "Offer 5",
+        "description": "Description for Offer 5",
+        "image_id": 1,
+        "price": 59.99,
+        "type": 1,
+        "is_active": false
+    },
+    {
+        "title": "Offer 6",
+        "description": "Description for Offer 6",
+        "image_id": 1,
+        "price": 69.99,
+        "type": 2,
+        "is_active": true
+    },
+    {
+        "title": "Offer 7",
+        "description": "Description for Offer 7",
+        "image_id": 1,
+        "price": 79.99,
+        "type": 1,
+        "is_active": false
+    },
+    {
+        "title": "Offer 8",
+        "description": "Description for Offer 8",
+        "image_id": 1,
+        "price": 89.99,
+        "type": 2,
+        "is_active": true
+    },
+    {
+        "title": "Offer 9",
+        "description": "Description for Offer 9",
+        "image_id": 1,
+        "price": 99.99,
+        "type": 1,
+        "is_active": false
+    },
+    {
+        "title": "Offer 10",
+        "description": "Description for Offer 10",
+        "image_id": 1,
+        "price": 109.99,
+        "type": 2,
+        "is_active": true
+    }
 ]

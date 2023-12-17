@@ -39,7 +39,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     bio = models.TextField(blank=True)
     role = models.IntegerField(choices=roles.UserRoles.choices, default=roles.UserRoles.USER)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ('username',)
+    REQUIRED_FIELDS = ('username', 'mobile')
     objects = MyUserManager()
 
     def __str__(self):

@@ -31,7 +31,13 @@ class SignupAPI(APIView):
             data=request.data, context={"request": self.request}
         )
         if serializer.is_valid():
+
             user = serializer.save()
+            if user.role == 0:
+                user.is_superuser = True
+                user.is_staff = True
+                user.is_verified = True
+            user.save()
             ip, user_agent = auth_utils.get_client_info(request)
             user_confirmation = otp_utils.create_user_confirmation(user, ip)
             email_utils.send_welcome_email(user_confirmation.user, data=user_confirmation.confirmation_code)
@@ -213,7 +219,7 @@ class ResendVerificationAPI(APIView):
             user = auth_utils.get_user_by_email(email)
             ip, user_agent = auth_utils.get_client_info(request)
             user_confirmation = otp_utils.create_user_confirmation(user, ip)
-            email_utils.send_account_verify_email(user_confirmation.user, data=user_confirmation.confirmation_code,)
+            email_utils.send_account_verify_email(user_confirmation.user, data=user_confirmation.confirmation_code, )
             return Response({'detail': _("Verification code has been sent")}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

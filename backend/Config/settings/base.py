@@ -88,7 +88,7 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     'CONTACT': {
         'name': 'G-COSMOS Ltd',
-        'email': 'hasaanshimul@gmail.com'
+        'email': 'info@techtsy.com'
     },
 
 }

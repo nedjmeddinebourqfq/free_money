@@ -9,3 +9,8 @@ class AdminCashOutRequestSerializer(serializers.ModelSerializer):
         model = CashOutRequest
         fields = '__all__'
 
+
+class AdminCashOutRequestUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CashOutRequest
+        fields = ('status', )
