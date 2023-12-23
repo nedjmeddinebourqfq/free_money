@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 from decouple import config
-import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -17,7 +16,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_spectacular',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
     'coreapp.apps.CoreappConfig',
     'payment_method.apps.PaymentMethodConfig',
     'offer_partner.apps.OfferPartnerConfig',
@@ -88,7 +86,7 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     'CONTACT': {
         'name': 'G-COSMOS Ltd',
-        'email': 'info@techtsy.com'
+        'email': 'info@gcosmos.com'
     },
 
 }
@@ -123,6 +121,7 @@ AUTH_USER_MODEL = 'coreapp.User'
 CORS_ALLOW_ALL_ORIGINS = True
 CSRF_TRUSTED_ORIGINS = [
     'https://*.*',
+    'https://test.privateyebd.com'
 
 ]
 MEDIA_HOST = config('MEDIA_HOST')

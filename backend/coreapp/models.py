@@ -1,3 +1,4 @@
+import uuid
 from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
@@ -24,6 +25,7 @@ class Country(BaseModel):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
+    uid = models.UUIDField(default=uuid.uuid4, unique=True)
     username = models.CharField(unique=True, max_length=20)
     email = models.EmailField(unique=True, null=True, blank=True)
     mobile = models.CharField(max_length=15, null=True)

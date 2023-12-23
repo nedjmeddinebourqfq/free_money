@@ -48,3 +48,7 @@ def send_account_deactivation_email(email, data):
 
 def send_pending_approval_email(email, data):
     send_email(_("Pending for Admin Approval"), email, data, "email/auth/pending_approval.html")
+
+
+def send_cashout_email(email, data):
+    send_email(_("Cashout Request "), email, data, "email/auth/cashout.html")

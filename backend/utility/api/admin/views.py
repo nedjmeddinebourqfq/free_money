@@ -1,3 +1,7 @@
+from decimal import Decimal
+from django.utils import timezone
+from datetime import timedelta
+
 from django.db.models import Sum
 from drf_spectacular.utils import extend_schema
 from rest_framework.response import Response
@@ -46,13 +50,31 @@ class DashboardInformationAPI(views.APIView):
         offer_partner = OfferPartner.objects.filter(type=1).count()
         surver_partner = OfferPartner.objects.filter(type=2).count()
 
+        current_date = timezone.now().date()
+        daily_total_result = CashOutRequest.objects.filter(created_at__date=current_date).aggregate(
+            daily_total=Sum('amount'))
+        daily_total = daily_total_result['daily_total'] or 0
+
+        start_of_week = current_date - timedelta(days=current_date.weekday())
+        weekly_total_result = CashOutRequest.objects.filter(created_at__date__gte=start_of_week).aggregate(
+            weekly_total=Sum('amount'))
+        weekly_total = weekly_total_result['weekly_total'] or 0
+
+        start_of_month = current_date.replace(day=1)
+        monthly_total_result = CashOutRequest.objects.filter(created_at__date__gte=start_of_month).aggregate(
+            monthly_total=Sum('amount'))
+        monthly_total = monthly_total_result['monthly_total'] or 0
+
         data = {
             'total_user': total_user,
             'total_partner': total_partner,
             'new_offer': new_offer,
             'offer_partner': offer_partner,
-            'surver_partner': surver_partner,
-            'total_cashout': total_cashout
+            'survey_partner': surver_partner,
+            'total_cashout': total_cashout,
+            'daily_total': daily_total,
+            'weekly_total': weekly_total,
+            'monthly_total': monthly_total,
         }
 
         return Response(data, status=status.HTTP_200_OK)

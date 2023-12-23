@@ -3,6 +3,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register('partners', views.AdminOfferPartnerAPI)
+router.register('company', views.AdminCompanyAPI)
 urlpatterns = [
 
 ]
